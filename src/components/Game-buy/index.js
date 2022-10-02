@@ -22,7 +22,7 @@ const GameBuy = ({ game }) => {
     <div className="game-buy">
       <span className="game-buy__price">{game.price} руб.</span>
       <Button type={isItemCart ? "secondary" : "primary"} onClick={handleClick}>
-        {isItemCart ? "Убрать из корзины" : "В корзину"}
+        {isItemCart ? "Отменить" : "В корзину"}
       </Button>
     </div>
   );

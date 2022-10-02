@@ -1,11 +1,19 @@
-import React from "react";
+import React, {useCallback} from "react";
 import { calcTotalPrice } from "../utils";
 import Button from '../Button'
 import CartItem from '../Cart-Item';
+import { useNavigate } from "react-router-dom";
 import './style.css'
 
-const CartMenu = ({ items, onClick }) => {
+const CartMenu = ({ items, onClick, setIsCartVisible }) => {
   const totalPrice = calcTotalPrice(items);
+  const navigate = useNavigate();
+
+  const handleClick = useCallback(() => {
+    setIsCartVisible(false)
+    navigate('/order')
+  }, [navigate]);
+
   return (
     <div className="cart-menu">
       <div className="cart-menu_games-list">
@@ -19,7 +27,7 @@ const CartMenu = ({ items, onClick }) => {
           <span>Итого :</span>
           <span>{totalPrice} руб.</span>
         </div>
-        <Button type="primary">
+        <Button type="primary"  onClick={handleClick}>
             Оформить заказ
         </Button>
       </div>

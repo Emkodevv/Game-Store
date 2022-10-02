@@ -11,6 +11,7 @@ const CartBlock = () => {
   const items = useSelector((state) => state.cart.itemInCart);
   const totalPrice = calcTotalPrice(items);
   const [isCartVisible, setIsCartVisible] = useState(false);
+  
 
   return (
     <div>
@@ -23,7 +24,7 @@ const CartBlock = () => {
       {totalPrice > 0 ? (
         <span className="cart-block__total-price">{totalPrice} руб.</span>
       ) : null}
-      {isCartVisible && <CartMenu items={items} />}
+      {isCartVisible && <CartMenu setIsCartVisible={setIsCartVisible} items={items} />}
     </div>
   );
 };

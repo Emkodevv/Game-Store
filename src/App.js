@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import { Provider } from "react-redux";
 import { store } from "./Redux/index";
 import GamePage from './page/Game Page'
+import OrderPage from "./page/Order-page";
 import "./index.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/app/:title" element={<GamePage />} />
+        <Route path="/order" element={<OrderPage />} />
       </Routes>
     </div>
     </Provider>
